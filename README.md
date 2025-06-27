@@ -1,7 +1,7 @@
 <div align="center">
   <img src="https://i.ibb.co/JFnxsW8g/logo-musicone.jpg" width="600"/>
   
-  <h1>Musicone - Aleatorizador de músicas/h1>
+  <h1>Musicone - Aleatorizador de músicas</h1>
   
   <p>
     <img src="https://img.shields.io/badge/status-em%20desenvolvimento-yellow" alt="Status: Em desenvolvimento"/>
