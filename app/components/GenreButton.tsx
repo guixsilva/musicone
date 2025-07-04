@@ -3,33 +3,32 @@
 import * as crypto from 'crypto';
 export const md5 = (contents: string) => crypto.createHash('md5').update(contents).digest("hex");
 
-export function GradientGenerator(genre: string){
+export function GradientGenerator(genre: string) {
     const hashGenre = md5(genre);
-    let startcolor: string[] = [];
-    let endcolor: string[] = [];
-    const chars = hashGenre.split('');
-    
-    for(let i = 0; i < 6; i++){
-        if(startcolor.length < 6){
-            startcolor.join(hashGenre[i]);
-        }
-    }
-
-    for(let i = 6; i < 12; i++){
-        if(endcolor.length < 6){
-            endcolor.join(hashGenre[i]);
-        }
-    }
-
+    const startcolor = `#${hashGenre.slice(0, 6)}`;
+    const endcolor = `#${hashGenre.slice(6, 12)}`;
     return [startcolor, endcolor];
 }
 
-export default function GenreButton(genre: string){
-    const [StartColor, EndColor] = GradientGenerator(genre = genre);
 
-    return(
+type GenreButtonProps = {
+    genre: string;
+};
+
+export default function GenreButton({ genre }: GenreButtonProps) {
+    const [startColor, endColor] = GradientGenerator(genre);
+
+    return (
         <div>
-            <button type="button" style={{ backgroundImage: `linear-gradient(to right, ${StartColor}, ${EndColor})` }} className="rounded-full text-white px-4 py-2">{genre}</button>
+            <button
+                type="button"
+                style={{
+                    backgroundImage: `linear-gradient(to right, ${startColor}, ${endColor})`,
+                }}
+                className="rounded-full text-white px-4 py-2 shadow-md hover:opacity-90 transition"
+            >
+                {genre}
+            </button>
         </div>
-    )
+    );
 }
