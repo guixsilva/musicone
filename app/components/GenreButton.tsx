@@ -25,7 +25,7 @@ export default function GenreButton({ genre }: GenreButtonProps) {
                 style={{
                     backgroundImage: `linear-gradient(to right, ${startColor}, ${endColor})`,
                 }}
-                className="rounded-full text-white px-4 py-2 shadow-md hover:opacity-90 transition"
+                className="flex-auto rounded-full text-white px-4 py-2 shadow-md hover:opacity-90 transition flex-initial"
             >
                 {genre}
             </button>
