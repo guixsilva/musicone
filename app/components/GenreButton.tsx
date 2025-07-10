@@ -19,7 +19,6 @@ export default function GenreButton({ genre }: GenreButtonProps) {
     const [startColor, endColor] = GradientGenerator(genre);
 
     return (
-        <div>
             <button
                 type="button"
                 style={{
@@ -29,6 +28,5 @@ export default function GenreButton({ genre }: GenreButtonProps) {
             >
                 {genre}
             </button>
-        </div>
     );
 }
