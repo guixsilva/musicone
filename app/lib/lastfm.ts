@@ -29,9 +29,9 @@ export function randomElement(vector: any[]){
     return vector[i];
 }
 
-export async function searchGenre(genero: string){
-    const url =`https://ws.audioscrobbler.com/2.0/?method=tag.search&tag=${genero}&api_key=${apikey}&format=json`;
-    const response = await fetch(url);
-    const data = await response.json();
-    return data.tagmatches;
+export async function getTopGenres() {
+  const url = `https://ws.audioscrobbler.com/2.0/?method=tag.getTopTags&api_key=${apikey}&format=json`;
+  const response = await fetch(url);
+  const data = await response.json();
+  return data.toptags.tag;
 }

@@ -1,9 +1,10 @@
 import GenreChoise from "@/app/components/GenreChoice"
+import GenreSearch from "./components/GenreSearch";
 
 export default function Home() {
   return (
     <div>
-      <GenreChoise></GenreChoise>
+      <GenreSearch></GenreSearch>
     </div>
   );
 }

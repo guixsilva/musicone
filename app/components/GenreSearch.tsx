@@ -1,3 +1,5 @@
+"use client";
+
 import { useState, useEffect } from "react";
 import GenreButton from "./GenreButton";
 import { Genre } from "../api/types/genre";
@@ -5,6 +7,21 @@ import { Genre } from "../api/types/genre";
 export default function GenreSearch() {
     const [term, setTerm] = useState('');
     const [genres, setGenres] = useState<Genre[]>([]);
+
+    useEffect(() => {
+        const TopGenres = async () => {
+            try {
+                const res = await fetch("/api/genresearch");
+                const data = await res.json();
+                setGenres(data);
+                console.log("Gêneros iniciais carregados:", data);
+            } catch (error) {
+                console.error("Erro ao carregar gêneros populares:", error);
+            }
+        };
+
+        TopGenres();
+    }, []);
 
     useEffect(() => {
         const debounce = setTimeout(async () => {
