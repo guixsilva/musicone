@@ -1,4 +1,3 @@
-import GenreChoise from "@/app/components/GenreChoice"
 import GenreSearch from "./components/GenreSearch";
 
 export default function Home() {
