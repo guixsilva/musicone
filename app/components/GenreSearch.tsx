@@ -9,6 +9,8 @@ export default function GenreSearch() {
     const [genres, setGenres] = useState<Genre[]>([]);
     const [isLoading, setLoading] = useState(true);
     const [error, setError] = useState<boolean>(false);
+    const [selectedGenre, setSelectedGenre] = useState<string | null>(null);
+
 
     const TopGenres = async () => {
         setLoading(true);
@@ -69,7 +71,7 @@ export default function GenreSearch() {
                     <p className="text-red-500">Ocorreu um erro no carregamento. Tente novamente</p>
                 ) : genres.length > 0 ? (
                     genres.map((genre, index) => (
-                        <GenreButton key={index} genre={genre.name} />
+                        <GenreButton key={index} genre={genre.name} selected={genre.name === selectedGenre} onSelect={setSelectedGenre}/>
                     ))
                 ) : <p>Tente pesquisar outro termo...</p>}
             </div>
