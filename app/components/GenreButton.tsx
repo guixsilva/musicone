@@ -24,11 +24,13 @@ export default function GenreButton({ genre, selected, onSelect }: GenreButtonPr
         <button
             type="button"
             onClick={() => onSelect(genre)}
+            className={`
+                flex-auto font-bold rounded-full text-white px-4 py-2 shadow-md hover:opacity-90 transition flex-initialbg-gradient-to-r
+                ${selected ? "ring-2 ring-offset-2 ring-white" : ""}
+            `}
             style={{
                 backgroundImage: `linear-gradient(to right, ${startColor}, ${endColor})`,
-                border: selected ? "1px solid white" : "none",
             }}
-            className="flex-auto rounded-full text-white px-4 py-2 shadow-md hover:opacity-90 transition flex-initial"
         >
             {genre}
         </button>

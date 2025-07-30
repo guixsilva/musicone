@@ -4,7 +4,13 @@ import { useState, useEffect } from "react";
 import GenreButton from "./GenreButton";
 import { Genre } from "../api/types/genre";
 
-export default function GenreSearch() {
+type GenreSearchProps = {
+    selected: string | null;
+    onSelectGenre: (genre: string) => void;
+};
+
+
+export default function GenreSearch({selected, onSelectGenre }: GenreSearchProps) {
     const [term, setTerm] = useState('');
     const [genres, setGenres] = useState<Genre[]>([]);
     const [isLoading, setLoading] = useState(true);
@@ -57,24 +63,31 @@ export default function GenreSearch() {
             }
         }, 500)
 
-        return () => clearTimeout(debounce)
-
-    }, [term])
+        return () => clearTimeout(debounce);
+    }, [term]);
 
     return (
         <div className="flex flex-col w-full max-w-md mx-auto">
-            <input type="search" className="w-full" placeholder="Gênero musical" value={term} style={{ maxHeight: '200px' }} onChange={(e) => setTerm(e.target.value)}></input>
-            <div className="flex-wrap gap-2">
+            <input type="search" className="w-full bg-white text-black font-light rounded-sm p-1" placeholder="Pesquisar" value={term} style={{ maxHeight: '200px' }} onChange={(e) => setTerm(e.target.value)}
+            />
+            <div className="flex flex-wrap gap-2 mt-2">
                 {isLoading ? (
                     <p className="text-gray-500">Carregando...</p>
                 ) : error ? (
-                    <p className="text-red-500">Ocorreu um erro no carregamento. Tente novamente</p>
+                    <p className="text-red-500">Erro ao carregar gêneros. Tente novamente.</p>
                 ) : genres.length > 0 ? (
                     genres.map((genre, index) => (
-                        <GenreButton key={index} genre={genre.name} selected={genre.name === selectedGenre} onSelect={setSelectedGenre}/>
+                        <GenreButton
+                            key={index}
+                            genre={genre.name}
+                            selected={genre.name === selected}
+                            onSelect={() => onSelectGenre(genre.name)}
+                        />
                     ))
-                ) : <p>Tente pesquisar outro termo...</p>}
+                ) : (
+                    <p>Nenhum gênero encontrado. Tente outro termo.</p>
+                )}
             </div>
         </div>
-    )
+    );
 }

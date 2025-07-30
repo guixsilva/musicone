@@ -42,7 +42,7 @@
 
 @font-face {
     font-family: 'Creato Display';
-    src: url('/CreatoDisplay-Light.ttf') format('truetype');
+    src: url('/CreatoDisplay-Light.otf') format('opentype');
     font-weight: 300;
     font-style: normal;
     font-display: swap;
@@ -50,7 +50,7 @@
 
 @font-face {
     font-family: 'Creato Display';
-    src: url('/CreatoDisplay-Bold.ttf') format('truetype');
+    src: url('/CreatoDisplay-Bold.otf') format('opentype');
     font-weight: bold;
     font-style: normal;
     font-display: swap;
@@ -74,7 +74,7 @@
 
 @font-face {
     font-family: 'Creato Display';
-    src: url('/CreatoDisplay-Regular.ttf') format('truetype');
+    src: url('/CreatoDisplay-Regular.otf') format('opentype');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -126,7 +126,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #232428;
     --foreground: #ededed;
   }
 }

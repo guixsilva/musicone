@@ -1,9 +1,9 @@
-import GenreSearch from "./components/GenreSearch";
+import Chooser from "./components/Chooser";
 
 export default function Home() {
   return (
     <div>
-      <GenreSearch></GenreSearch>
+      <Chooser></Chooser>
     </div>
   );
 }
