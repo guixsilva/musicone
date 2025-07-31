@@ -10,7 +10,7 @@ export async function getMusic(genero: string, limite: number){
 }
 
 export async function searchAlbum(genero: string){
-    const url =`https://ws.audioscrobbler.com/2.0/?method=gettopalbums&tag=${genero}&api_key=${apikey}&format=json`;
+    const url = `https://ws.audioscrobbler.com/2.0/?method=tag.gettopalbums&tag=${genero}&api_key=${apikey}&format=json`;
     const response = await fetch(url);
     const data = await response.json();
     return data.albums.album;
