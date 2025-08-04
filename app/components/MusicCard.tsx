@@ -9,7 +9,7 @@ export default function MusicCard({ musicname, artist, genre }: MusicCardProps) 
         <div className="w-full max-w-80 bg-black text-white rounded-lg shadow-md p-4 flex flex-col items-center">
             <img
                 className="w-full h-48 object-cover rounded-md mb-4"
-                src=""
+                src= {undefined}
                 alt={musicname}
             />
             <div className="text-center">
